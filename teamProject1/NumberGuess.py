@@ -3,6 +3,7 @@
 #computer will give hints about the number as the user guesses.  Try and come up
 #with your own implementation
 import random
+import yaml
 class NumGame:
     def __init__(self, rounds, min, max):
         self.numberRounds = rounds
@@ -13,7 +14,7 @@ class NumGame:
     def startGame(self):
         for i in range(1, self.numberRounds):
             if(self.playerGuess() == self.__randomNumber):
-                self.gameOver("You Win")
+                self.gameOver(f"You Win. It only took {i} guesses")
             else:
                 self.giveHint(self.previousGuess)
         self.gameOver(f"Sorry, the number was {self.__randomNumber}. You Lose")
@@ -27,4 +28,6 @@ class NumGame:
         else:
             print("bigger")
     def gameOver(result):
+        with open("Nuber guess log.txt", 'a') as file:
+            file.write(yaml.dump(result) + '\n')
         print(result)
