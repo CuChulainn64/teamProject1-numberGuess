@@ -9,9 +9,9 @@ class NumGame:
     def __init__(self):
         self.getValues()
         self.__randomNumber = random.randint(self.min, self.max)
-        self.startGame()
+        self.run()
     
-    def startGame(self):
+    def run(self):
         print("\n******************************************************************************")
         print("Welcome to the number guess game")
         
@@ -54,3 +54,5 @@ class NumGame:
                 pass
             else:
                 break
+if __name__=='__main__':
+    NumGame()
