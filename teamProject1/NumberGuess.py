@@ -4,26 +4,17 @@
 #with your own implementation
 import random
 import yaml
+import get_input
 class NumGame:
-    def __init__(self, rounds, min, max):
-        try:
-            self.numberRounds = rounds
-            self.maxNumber = max
-            self.minNumber = min
-            self.__randomNumber = random.randint(min, max)
-            if(min > max):
-                raise ValueError
-            if(rounds<=0):
-                raise ValueError
-        except ValueError:
-            print("invalid starting values")
-        else:
-            self.__startGame()
+    def __init__(self):
+        self.getValues()
+        self.__randomNumber = random.randint(self.min, self.max)
     
-    def __startGame(self):
+    def startGame(self):
         print("\n******************************************************************************")
         print("Welcome to the number guess game")
-
+        
+        
         for i in range(1, self.numberRounds+1):
             guess = self.playerGuess()
             if( guess == self.__randomNumber):
@@ -42,7 +33,7 @@ class NumGame:
                 return int(guess)
             except ValueError:
                 print("that's not a valid guess")
-            
+    
     def giveHint(self, num):
         if(num > self.__randomNumber):
             print("smaller")
@@ -54,5 +45,15 @@ class NumGame:
             file.write(yaml.dump(result) + '\n')
         print(result)
         print("******************************************************************************\n")
+    def getValues(self):
+        while True:
+            try:
+                self.numberRounds = get_input.get_int("Please enter the number of rounds: ", min = 1)
+                self.min = get_input.get_int("Please enter the minumum value: ")
+                self.max = get_input.get_int("Please enter the maximum value", min = self.min + 1)
+            except:
+                pass
+            else:
+                break
         
 NumGame(3, 1, 1)
