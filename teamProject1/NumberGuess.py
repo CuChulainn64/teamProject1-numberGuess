@@ -28,12 +28,10 @@ class NumGame:
         self.gameOver(result)
     def playerGuess(self):
         while True:
-            try:
-                guess = input("Guess a number: ")
-                self.previousGuess = int(guess)
-                return int(guess)
-            except ValueError:
-                print("that's not a valid guess")
+            guess = get_input.get_int("Guess an integer: ") 
+            self.previousGuess = guess
+            return guess
+            
     
     def giveHint(self, num):
         if(num > self.__randomNumber):
@@ -56,5 +54,3 @@ class NumGame:
                 pass
             else:
                 break
-        
-NumGame()
