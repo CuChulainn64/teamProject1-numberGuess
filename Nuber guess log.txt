@@ -40,3 +40,9 @@ null
 Sorry, the number was 3. You Lose
 ...
 
+Sorry, the number was 1. You Lose
+...
+
+You Win. It only took 2 guesses
+...
+
