@@ -9,6 +9,7 @@ class NumGame:
     def __init__(self):
         self.getValues()
         self.__randomNumber = random.randint(self.min, self.max)
+        self.startGame()
     
     def startGame(self):
         print("\n******************************************************************************")
@@ -50,10 +51,10 @@ class NumGame:
             try:
                 self.numberRounds = get_input.get_int("Please enter the number of rounds: ", min = 1)
                 self.min = get_input.get_int("Please enter the minumum value: ")
-                self.max = get_input.get_int("Please enter the maximum value", min = self.min + 1)
+                self.max = get_input.get_int("Please enter the maximum value: ", min = self.min + 1)
             except:
                 pass
             else:
                 break
         
-NumGame(3, 1, 1)
+NumGame()

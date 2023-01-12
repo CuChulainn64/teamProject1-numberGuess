@@ -46,3 +46,6 @@ Sorry, the number was 1. You Lose
 You Win. It only took 2 guesses
 ...
 
+You Win. It only took 2 guesses
+...
+
