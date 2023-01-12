@@ -11,12 +11,19 @@ class NumGame:
             self.maxNumber = max
             self.minNumber = min
             self.__randomNumber = random.randint(min, max)
+            if(min > max):
+                raise ValueError
+            if(rounds<=0):
+                raise ValueError
         except ValueError:
             print("invalid starting values")
         else:
             self.__startGame()
     
     def __startGame(self):
+        print("\n******************************************************************************")
+        print("Welcome to the number guess game")
+
         for i in range(1, self.numberRounds+1):
             guess = self.playerGuess()
             if( guess == self.__randomNumber):
@@ -46,5 +53,6 @@ class NumGame:
         with open("Nuber guess log.txt", 'a') as file:
             file.write(yaml.dump(result) + '\n')
         print(result)
+        print("******************************************************************************\n")
         
 NumGame(3, 1, 1)
