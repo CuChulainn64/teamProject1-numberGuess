@@ -6,7 +6,7 @@ def get_int(prompt = "Please enter an integer", errorMessage = "That was not an 
             if min != None:
                 if num < min:
                     #num is too small
-                    raise ValueError(f"Input must at least {min}")
+                    raise Exception(f"Input must at least {min}")
             
             
             #check if max is set
@@ -17,9 +17,8 @@ def get_int(prompt = "Please enter an integer", errorMessage = "That was not an 
            
             break
         except ValueError:
-            #input is not an integer
+            #input is not valid
             print(errorMessage)
         except Exception as e:
-            #one of the min or max tests failed
             print(e)
     return num
